@@ -28,6 +28,10 @@ server.listen(port, () => {
     console.log(`started on port: ${port}`);
 });
 
+app.get('/',(req,res)=>{
+	res.send("Welcome to the FleetMangement Geolocation API")
+})
+
 io.on('connection', (socket) => {
     console.log('user connected');
 
