@@ -5,7 +5,7 @@ const http = require('http');
 const server = http.createServer(app);
 
 const io = require("socket.io")(server, {  
-    // optional, useful for custom headers
+    //enable CORS on socket server
     handlePreflightRequest: (req, res) => {
       res.writeHead(200, {
         "Access-Control-Allow-Origin": "*",
@@ -40,4 +40,13 @@ io.on('connection', (socket) => {
 
       socket.emit('s-emitlocation', location)
     })
+
+    socket.on('disconnectClient', () => {
+      socket.disconnect()
+    })
+
+  //   socket.on('disconnect', function () {
+  //     console.log('user disconnected');
+  // });
 });
+
