@@ -38,7 +38,12 @@ io.on('connection', (socket) => {
     socket.on('location', location => {
       console.log(location)
 
+
       socket.emit('s-emitlocation', location)
+    })
+
+    socket.on('message', message => {
+      console.log(message)
     })
 
     socket.on('disconnectClient', () => {
