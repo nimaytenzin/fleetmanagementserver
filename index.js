@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
       console.log(location)
 
 
-      socket.emit('s-emitlocation', location)
+      io.emit('s-emitlocation', location)
     })
 
     socket.on('message', message => {
